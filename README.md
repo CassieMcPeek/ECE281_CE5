@@ -17,3 +17,13 @@ This is to code to complete task 1:
   
 I am not sure if this is the correct syntax, but I just followed the example 6.10 in the book so I think I am at least close to the 
 correct format.
+
+# Task 2: Machine Code
+
+  addi $S0, $0, 44 put into hexadecimal code would be 0X2010 002C
+  
+  addi $S1, $0, -37 put into hexadecimal code would be 0X2011 FFDB
+  
+  add $S2, $S1, $S0 put into hexadecimal code would be 0X0211 9020
+  
+  sw $S2, 0X54($0) put into hexadecimal code would be 0XAC12 0036
