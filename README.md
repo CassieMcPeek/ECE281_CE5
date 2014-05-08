@@ -43,6 +43,6 @@ For Part 3, I was pretty confused at first. I know I had made the correct change
 
 Above is the screenshot showing that my code performed the ORI instruction correctly and output the correct value into register S3 (19). Below, is the screenshots of the modified schematic and tables. 
 
-![alt text] (https://raw.github.com/CassieMcPeek/ECE281_CE5/master/CE5_Decoder_Modifications.JPG "Testbench Waveform")
+![alt text] (https://raw.github.com/CassieMcPeek/ECE281_CE5/master/CE5_Decoder_Modifications.jpg "Testbench Waveform")
 
-![alt text] (https://raw.github.com/CassieMcPeek/ECE281_CE5/master/CE5_Schematic.JPG "Testbench Waveform")
+![alt text] (https://raw.github.com/CassieMcPeek/ECE281_CE5/master/CE5_Schematic.jpg "Testbench Waveform")
