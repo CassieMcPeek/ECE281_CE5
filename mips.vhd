@@ -24,7 +24,7 @@ entity controller is -- single cycle control decoder
        zero:               in  STD_LOGIC;
        memtoreg, memwrite: out STD_LOGIC;
        pcsrc:      out STD_LOGIC;
-		 alusrc:    out std_logic_vector (1 downto 0);
+		 alusrc:    out std_logic;
        regdst, regwrite:   out STD_LOGIC;
        jump:               out STD_LOGIC;
        alucontrol:         out STD_LOGIC_VECTOR(2 downto 0));
@@ -35,7 +35,7 @@ entity maindec is -- main control decoder
   port(op:                 in  STD_LOGIC_VECTOR(5 downto 0);
        memtoreg, memwrite: out STD_LOGIC;
        branch:     out STD_LOGIC;
-		 alusrc:   out std_logic_vector (1 downto 0);
+		 alusrc:   out std_logic;
        regdst, regwrite:   out STD_LOGIC;
        jump:               out STD_LOGIC;
        aluop:              out  STD_LOGIC_VECTOR(1 downto 0));
@@ -53,7 +53,7 @@ entity datapath is  -- MIPS datapath
   port(clk, reset:        in  STD_LOGIC;
        memtoreg, pcsrc:   in  STD_LOGIC;
        regdst:    in  STD_LOGIC;
-		 alusrc:  in std_logic_vector (1 downto 0);
+		 alusrc:  in std_logic;
        regwrite, jump:    in  STD_LOGIC;
        alucontrol:        in  STD_LOGIC_VECTOR(2 downto 0);
        zero:              out STD_LOGIC;
@@ -146,7 +146,7 @@ architecture struct of mips is
          zero:               in  STD_LOGIC;
          memtoreg, memwrite: out STD_LOGIC;
          pcsrc:      out STD_LOGIC;
-			alusrc: out std_logic_vector(1 downto 0);
+			alusrc: out std_logic;
          regdst, regwrite:   out STD_LOGIC;
          jump:               out STD_LOGIC;
          alucontrol:         out STD_LOGIC_VECTOR(2 downto 0));
@@ -155,7 +155,7 @@ architecture struct of mips is
     port(clk, reset:        in  STD_LOGIC;
          memtoreg, pcsrc:   in  STD_LOGIC;
          regdst:    in  STD_LOGIC;
-			alusrc: in std_logic_vector (1 downto 0); 
+			alusrc: in std_logic; 
          regwrite, jump:    in  STD_LOGIC;
          alucontrol:        in  STD_LOGIC_VECTOR(2 downto 0);
          zero:              out STD_LOGIC;
@@ -165,7 +165,7 @@ architecture struct of mips is
          readdata:          in  STD_LOGIC_VECTOR(31 downto 0));
   end component;
   signal memtoreg, regdst, regwrite, jump, pcsrc: STD_LOGIC;
-  signal alusrc: std_logic_vector (1 downto 0);
+  signal alusrc: std_logic;
   signal zero: STD_LOGIC;
   signal alucontrol: STD_LOGIC_VECTOR(2 downto 0);
 begin
@@ -182,7 +182,7 @@ architecture struct of controller is
     port(op:                 in  STD_LOGIC_VECTOR(5 downto 0);
          memtoreg, memwrite: out STD_LOGIC;
          branch:     out STD_LOGIC;
-			alusrc: 		out std_logic_vector (1 downto 0);
+			alusrc: 		out std_logic;
          regdst, regwrite:   out STD_LOGIC;
          jump:               out STD_LOGIC;
          aluop:              out  STD_LOGIC_VECTOR(1 downto 0));
@@ -218,9 +218,9 @@ begin
     end case;
   end process;
 
-  regwrite <= controls(9);
-  regdst   <= controls(8);
-  alusrc   <= controls(7 downto 6);
+  regwrite <= controls(8);
+  regdst   <= controls(7);
+  alusrc   <= controls(6);
   branch   <= controls(5);
   memwrite <= controls(4);
   memtoreg <= controls(3);
